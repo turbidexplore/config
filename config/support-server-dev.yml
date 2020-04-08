@@ -1,0 +1,17 @@
+com:
+    turbid:
+      securitycode: ${random.int[1000,9999]}
+      upload-path:
+        images: /home/alex/images/
+      #腾讯云存储服务
+      tencentoss:
+        qcloud_file_accesskey: AKIDe5JJ4ZDaKo35vV7Ilz74rRr2hMnyReQx
+        qcloud_file_secretkey: RLE4f0A5mDOiqkOozuaI0XqujKflYI0U
+        #上海存储区
+        qcloud_file_region: ap-chengdu
+        #正式环境的桶 1
+        qcloud_file_bucket: anoax-1258088094
+      sms:
+        appid: 1400284009
+        appkey: 39932b40c6bbdad0ca10da22888660b0
+        smsSign: 浑浊探索
