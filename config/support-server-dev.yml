@@ -86,3 +86,11 @@ com:
         appid: 140028400900
         appkey: 39932b40c6bbdad0ca10da22888660b0
         smsSign: 浑浊探索
+
+management:  #actuator
+  endpoints:
+    web:
+#      base-path: / #默认是/actuator 前缀，可以在这里修改
+      exposure:
+        include: "*"  #打开全部请求端点
+#        include: refresh,health,info #打开部分
