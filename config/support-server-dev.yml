@@ -83,7 +83,17 @@ com:
         #正式环境的桶 1
         qcloud_file_bucket: anoax-1258088094
       sms:
-        appid: 1400284009
+        appid: 1400284008
         appkey: 39932b40c6bbdad0ca10da22888660b0
         smsSign: 浑浊探索
+
+management:  #actuator
+  server:
+    port: ${server.port}
+  endpoints:
+    web:
+#      base-path: / #默认是/actuator 前缀，可以在这里修改
+      exposure:
+        include: "*"  #打开全部请求端点
+#        include: refresh,health,info #打开部分
 
