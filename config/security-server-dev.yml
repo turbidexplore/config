@@ -86,5 +86,5 @@ feign:
   hystrix:
     enabled: true
 com:
-  id: 123
+  id: 1234
 
