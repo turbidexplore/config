@@ -4,6 +4,11 @@ server:
 spring:
   application:
     name: support-server
+  rabbitmq:
+    host: anoax.com
+    port: 5672
+    username: anoax
+    password: zhangan@28
   redis:
     database: 0
     host: anoax.com
@@ -68,7 +73,6 @@ eureka:
     status-page-url: http://${eureka.instance.hostname}/info
     #健康检查
     health-check-url: http://${eureka.instance.hostname}/health
-
 com:
     turbid:
       securitycode: ${random.int[1000,9999]}
@@ -87,6 +91,11 @@ com:
         appkey: 39932b40c6bbdad0ca10da22888660b0
         smsSign: 浑浊探索
 
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value: auth.turbidexplore.com
 management:  #actuator
   server:
     port: ${server.port}
@@ -96,4 +105,13 @@ management:  #actuator
       exposure:
         include: "*"  #打开全部请求端点
 #        include: refresh,health,info #打开部分
+
+feign:
+  compression:
+    request:
+      enabled: true #对请求进行压缩
+      mime-types: text/xml,application/xml,application/json
+      min-request-size: 2048
+  hystrix:
+    enabled: true
 

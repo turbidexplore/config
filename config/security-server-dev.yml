@@ -3,6 +3,11 @@ server:
   port: 8769
 
 spring:
+  rabbitmq:
+    host: anoax.com
+    port: 5672
+    username: anoax
+    password: zhangan@28
   redis:
     database: 0
     host: anoax.com
@@ -31,10 +36,10 @@ spring:
     redis:
       time-to-live: 60000  #很重要，缓存的有效时间，以便缓存的过期（单位为毫秒
   datasource:
-    url: jdbc:mysql://anoax.com:3306/turbid_anoax_database?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://anoax.com:3306/anoax?useUnicode=true&characterEncoding=utf8
     type: com.alibaba.druid.pool.DruidDataSource
-    username: turbid
-    password: anoax!@#321
+    username: anoax
+    password: zhangan@28
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 eureka:
@@ -62,12 +67,15 @@ security:
     resource:
       jwt:
         key-value: auth.turbidexplore.com
-
-#端点配置首页
-management:
+management:  #actuator
   server:
-    servlet:
-      context-path: /
+    port: ${server.port}
+  endpoints:
+    web:
+#      base-path: / #默认是/actuator 前缀，可以在这里修改
+      exposure:
+        include: "*"  #打开全部请求端点
+#        include: refresh,health,info #打开部分
 
 feign:
   compression:
@@ -77,4 +85,6 @@ feign:
       min-request-size: 2048
   hystrix:
     enabled: true
+com:
+  id: 123
 

@@ -4,6 +4,11 @@ server:
 spring:
   application:
     name: support-server
+  rabbitmq:
+    host: anoax.com
+    port: 5672
+    username: anoax
+    password: zhangan@28
   redis:
     database: 0
     host: anoax.com
