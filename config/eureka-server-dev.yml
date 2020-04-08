@@ -1,9 +1,4 @@
-server:
-  port: 8000
-
 spring:
-  application:
-    name: eureka-server
   # profiles: dev
   security:
     user:
