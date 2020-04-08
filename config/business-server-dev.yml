@@ -1,0 +1,88 @@
+server:
+  port: 8092
+
+spring:
+  application:
+    name: support-server
+  redis:
+    database: 0
+    host: anoax.com
+    port: 6379
+    password: zhangan@28
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1ms
+        min-idle: 0
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1ms
+        min-idle: 0
+    shutdown-timeout: 100ms
+  cache:
+    type: REDIS
+    cache-names: redis_cache , ehcache #缓存的名字
+    redis:
+      time-to-live: 60000  #很重要，缓存的有效时间，以便缓存的过期（单位为毫秒
+  mail:
+    host: smtp.exmail.qq.com
+    account: a@anoax.com
+    from: a@anoax.com
+    pass: GSyGZkN5TdLB4KMi
+    port: 465
+    protocol: smtp
+  servlet:
+    multipart:
+      maxFileSize: 100MB
+      maxRequestSize: 100MB
+      enabled: true
+  datasource:
+    url: jdbc:mysql://anoax.com:3306/anoax?useUnicode=true&characterEncoding=utf8
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: anoax
+    password: zhangan@28
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+eureka:
+  client:
+    service-url:
+      #指定服务中心地址
+      defaultZone: http://turbid:turbid321@localhost:8000/eureka/
+    register-with-eureka: true
+  instance:
+    hostname: localhost
+    #定义服务续约任务的调用间隔时间
+    lease-renewal-interval-in-seconds: 30
+    #定义服务失效时间
+    lease-expiration-duration-in-seconds: 90
+    #首页
+    home-page-url: http://${eureka.instance.hostname}/
+    #状态页面
+    status-page-url: http://${eureka.instance.hostname}/info
+    #健康检查
+    health-check-url: http://${eureka.instance.hostname}/health
+
+com:
+    turbid:
+      securitycode: ${random.int[1000,9999]}
+      upload-path:
+        images: /home/alex/images/
+      #腾讯云存储服务
+      tencentoss:
+        qcloud_file_accesskey: AKIDe5JJ4ZDaKo35vV7Ilz74rRr2hMnyReQx
+        qcloud_file_secretkey: RLE4f0A5mDOiqkOozuaI0XqujKflYI0U
+        #上海存储区
+        qcloud_file_region: ap-chengdu
+        #正式环境的桶 1
+        qcloud_file_bucket: anoax-1258088094
+      sms:
+        appid: 1400284009
+        appkey: 39932b40c6bbdad0ca10da22888660b0
+        smsSign: 浑浊探索
