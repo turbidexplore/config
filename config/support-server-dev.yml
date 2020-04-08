@@ -83,6 +83,6 @@ com:
         #正式环境的桶 1
         qcloud_file_bucket: anoax-1258088094
       sms:
-        appid: 1400284009
+        appid: 140028400900
         appkey: 39932b40c6bbdad0ca10da22888660b0
         smsSign: 浑浊探索
